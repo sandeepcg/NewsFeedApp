@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NewsFeedsSampleApp</string>
+    <string name="newsList_fragment">BBCNews</string>
+</resources>
