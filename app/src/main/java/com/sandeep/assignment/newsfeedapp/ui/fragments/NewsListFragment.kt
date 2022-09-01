@@ -46,13 +46,13 @@ class NewsListFragment : Fragment() {
         loadingProgressBar=view.findViewById<ContentLoadingProgressBar>(R.id.progressBar)
         bBCNewsListRecyclerView.hasFixedSize()
         bBCNewsListRecyclerView.layoutManager = LinearLayoutManager(view.context)
+        bBCNewsListRecyclerView.adapter = bBCNewsListAdapter;
     }
     override fun onResume() {
         super.onResume()
         observe()
     }
     private fun observe(){
-
         observeBBCNews()
         viewModel.fetchAllBBCNews()
     }
@@ -82,7 +82,6 @@ class NewsListFragment : Fragment() {
 
     private fun handleNewsList(newsList: List<NewsArticleModel>){
         bBCNewsListAdapter.setListData(newsList)
-        bBCNewsListRecyclerView.adapter = bBCNewsListAdapter;
     }
 
 }

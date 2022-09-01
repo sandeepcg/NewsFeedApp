@@ -30,6 +30,7 @@ class NewsListAdapter @Inject constructor() : RecyclerView.Adapter<NewsListViewH
     fun setListData(listArticle: List<NewsArticleModel>) {
         this.listNews = listArticle.toMutableList()
         notifyItemRangeInserted(0, listArticle.size)
+        notifyDataSetChanged()
     }
 }
 
