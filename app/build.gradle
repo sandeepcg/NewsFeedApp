@@ -91,6 +91,6 @@ dependencies {
     testImplementation("com.google.dagger:hilt-android-testing:2.42")
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'ccom.android.support.test.espresso:espresso-core:2.2.2'
-
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_logging_version"
 
 }
