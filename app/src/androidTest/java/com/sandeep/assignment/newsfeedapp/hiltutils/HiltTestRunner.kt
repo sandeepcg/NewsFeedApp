@@ -1,5 +1,5 @@
 
-package com.example.mapapplication.hiltUtil
+package com.sandeep.assignment.newsfeedapp.hiltutils
 
 import android.app.Application
 import android.content.Context

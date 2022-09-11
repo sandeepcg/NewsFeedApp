@@ -1,5 +1,8 @@
 package com.sandeep.assignment.newsfeedapp.data.model
 
+/**
+ * Data class for holding News data
+ */
 
 
 data class NewsArticleModel (

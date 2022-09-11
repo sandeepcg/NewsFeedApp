@@ -1,5 +1,8 @@
 package com.sandeep.assignment.newsfeedapp.ui
 
+/**
+ * Main activity class for the application
+ */
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar

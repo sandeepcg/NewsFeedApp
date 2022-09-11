@@ -1,6 +1,7 @@
 package com.sandeep.assignment.newsfeedapp.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ import com.sandeep.assignment.newsfeedapp.data.model.NewsArticleModel
 import com.sandeep.assignment.newsfeedapp.ui.adapters.NewsListAdapter
 import com.sandeep.assignment.newsfeedapp.ui.viewmodels.BBCNewsListViewModel
 
-import com.sandeep.assignment.newsfeedappdemo.data.common.NetWorkResults
+import com.sandeep.assignment.newsfeedapp.data.common.NetWorkResults
 import dagger.hilt.android.AndroidEntryPoint
 
 import javax.inject.Inject
@@ -64,7 +65,9 @@ class NewsListFragment : Fragment() {
                     loadingProgressBar.visibility =View.VISIBLE
                 }
                 is NetWorkResults.Error -> {
-                    results.message?.let { showToast(it) }
+                    results.message?.let {
+                        Log.e("ABCD",""+results.message.toString())
+                        showToast(it) }
                     loadingProgressBar.visibility =View.GONE
                 }
                 is NetWorkResults.Success -> {

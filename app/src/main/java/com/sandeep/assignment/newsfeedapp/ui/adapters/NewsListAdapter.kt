@@ -1,5 +1,8 @@
 package com.sandeep.assignment.newsfeedapp.ui.adapters
 
+/**
+ * Adapter class for showing news feeds list
+ */
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

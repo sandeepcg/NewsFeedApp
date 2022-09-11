@@ -1,5 +1,8 @@
 package com.sandeep.assignment.newsfeedapp.data.datasource
 
+/**
+ * Interface API for requesting BBC news headline
+ */
 
 import com.sandeep.assignment.newsfeedapp.data.model.NewsFeedResponse
 import com.sandeep.assignment.newsfeedapp.utils.API_KEY

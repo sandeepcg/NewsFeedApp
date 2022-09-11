@@ -1,5 +1,8 @@
 package com.sandeep.assignment.newsfeedapp.di
 
+/**
+ * Modules for handling dependency injections
+ */
 import com.sandeep.assignment.newsfeedapp.data.datasource.NewsFeedApi
 import com.sandeep.assignment.newsfeedapp.data.respository.BBCNewsFeedRepository
 import com.sandeep.assignment.newsfeedapp.domain.repository.BBCNewsFeedRepositoryImpl
