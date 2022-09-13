@@ -21,9 +21,12 @@ import javax.inject.Inject
 @HiltViewModel
 class BBCNewsListViewModel @Inject constructor(@ApplicationContext private val mContext: Context,
                                                private val bbcNewsUseCase: GetBBCNewsUseCase) : ViewModel() {
-
+    //live data object for holding network response
     val newsList: MutableLiveData<NetWorkResults<NewsFeedResponse>> = MutableLiveData()
 
+    /**
+     * Method for invoking list data and post results to via live data
+     */
     fun fetchAllBBCNews() = viewModelScope.launch(Dispatchers.IO) {
         newsList.postValue(NetWorkResults.Loading())
         try {

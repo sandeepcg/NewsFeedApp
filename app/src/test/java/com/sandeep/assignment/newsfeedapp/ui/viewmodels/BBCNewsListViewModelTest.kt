@@ -13,6 +13,7 @@ import com.sandeep.assignment.newsfeedapp.domain.repository.BBCNewsFeedRepositor
 import com.sandeep.assignment.newsfeedapp.domain.usecases.GetBBCNewsUseCase
 import com.sandeep.assignment.newsfeedapp.getOrAwaitValue
 import com.sandeep.assignment.newsfeedapp.data.common.NetWorkResults
+import com.sandeep.assignment.newsfeedapp.utils.API_ERROR_STR
 import com.sandeep.assignment.newsfeedapp.utils.SUCCESS_MSG
 import io.mockk.every
 import io.mockk.mockkStatic
@@ -72,26 +73,10 @@ class BBCNewsListViewModelTest {
 
     }
 
-
-
     @After
     fun teardown() {
         Dispatchers.resetMain()
         mockWebServer.shutdown()
-    }
-
-    @Test
-    fun test_getPoiData() = runBlocking {
-        //`when`(useCase.invoke()).
-        //thenReturn(NetWorkResults.Success(NewsFeedResponse(mutableListOf(), "success", 0)))
-       // mainViewModel.fetchAllBBCNews()
-        //Assert.assertEquals(mainViewModel.newsList.value,NetWorkResults.Loading<NewsFeedResponse>())
-        //Assert.assertNotNull(mainViewModel)
-        //Assert.assertNotNull()
-    //val list = MutableLiveData<ArrayList<Results>>()
-        //val arrList :ArrayList<Results> = ArrayList()
-        //Mockito.`when`(repository.getPOI(5, "km", 52.526, 13.415, "apiKey")).thenReturn(Response.success(arrList))
-        //mMainViewModel.getPOIData().value?.let { Truth.assertThat(it.size).isEqualTo(0) }
     }
 
     @Test
@@ -103,5 +88,13 @@ class BBCNewsListViewModelTest {
         Assert.assertNotNull(mainViewModel)
 
     }
+
+    @Test
+    fun test_getError() = runBlocking {
+        mainViewModel.newsList.postValue(NetWorkResults.Error(API_ERROR_STR))
+        mainViewModel.fetchAllBBCNews()
+        Assert.assertEquals(mainViewModel.newsList.value?.message,API_ERROR_STR)
+    }
+
 }
 

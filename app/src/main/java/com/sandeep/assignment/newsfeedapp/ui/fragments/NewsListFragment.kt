@@ -19,6 +19,7 @@ import com.sandeep.assignment.newsfeedapp.ui.adapters.NewsListAdapter
 import com.sandeep.assignment.newsfeedapp.ui.viewmodels.BBCNewsListViewModel
 
 import com.sandeep.assignment.newsfeedapp.data.common.NetWorkResults
+
 import dagger.hilt.android.AndroidEntryPoint
 
 import javax.inject.Inject
@@ -49,15 +50,23 @@ class NewsListFragment : Fragment() {
         bBCNewsListRecyclerView.layoutManager = LinearLayoutManager(view.context)
         bBCNewsListRecyclerView.adapter = bBCNewsListAdapter;
     }
+
     override fun onResume() {
         super.onResume()
         observe()
     }
+
+    /**
+     * Method for initialize live data observe method and news list fetch
+     */
     private fun observe(){
         observeBBCNews()
         viewModel.fetchAllBBCNews()
     }
 
+    /**
+     * Method for live data observer
+      */
     private fun observeBBCNews(){
         viewModel.newsList.observe(viewLifecycleOwner, { results ->
             when (results) {
@@ -66,7 +75,6 @@ class NewsListFragment : Fragment() {
                 }
                 is NetWorkResults.Error -> {
                     results.message?.let {
-                        Log.e("ABCD",""+results.message.toString())
                         showToast(it) }
                     loadingProgressBar.visibility =View.GONE
                 }
@@ -79,10 +87,18 @@ class NewsListFragment : Fragment() {
         } )
     }
 
+    /**
+     * Method for displaying toast message
+     * @param message : instance of message text
+     */
     private fun showToast(message: String) {
         Toast.makeText(activity,message,Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * Method for set new list data to adapter
+     * @param newsList : instance of news list
+     */
     private fun handleNewsList(newsList: List<NewsArticleModel>){
         bBCNewsListAdapter.setListData(newsList)
     }

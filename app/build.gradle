@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
 
 }
 
@@ -37,6 +38,10 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    buildFeatures {
+        viewBinding true
+    }
+
 
 }
 
@@ -46,8 +51,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0-alpha04'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.0-alpha04'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
@@ -56,7 +61,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
-    //implementation "androidx.hilt:hilt-lifecycle-viewmodel:$dagger_hilt_viewmodel_version"
+
     kapt "androidx.hilt:hilt-compiler:$dagger_hilt_viewmodel_version"
     implementation "androidx.activity:activity-ktx:$activity_ktx_version"
     implementation "androidx.fragment:fragment-ktx:$activity_ktx_version"
@@ -64,7 +69,10 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-    implementation "androidx.navigation:navigation-common:2.4.0-alpha04@aar"
+    implementation "androidx.navigation:navigation-common:2.4.0@aar"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.4.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
@@ -74,7 +82,6 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.6.1") {
-        // https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-debug#debug-agent-and-android
         exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
     }
     kaptTest 'com.google.dagger:hilt-compiler:2.43.2'
@@ -82,7 +89,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     testImplementation "androidx.arch.core:core-testing:$androidxTest"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    // mock extension function
+
     testImplementation "io.mockk:mockk:$mockkVersion"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
@@ -95,7 +102,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:0.5'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_logging_version"
     testImplementation 'com.google.truth:truth:1.0.1'
-    // https://mvnrepository.com/artifact/org.mockito/mockito-inline
+
     testImplementation("org.mockito:mockito-inline:4.8.0")
 
 }

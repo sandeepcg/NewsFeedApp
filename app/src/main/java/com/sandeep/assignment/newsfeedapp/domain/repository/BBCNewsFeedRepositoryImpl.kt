@@ -10,6 +10,7 @@ import com.sandeep.assignment.newsfeedapp.data.model.NewsSourceModel
 import com.sandeep.assignment.newsfeedapp.data.respository.BBCNewsFeedRepository
 import com.sandeep.assignment.newsfeedapp.utils.DateConverter
 import com.sandeep.assignment.newsfeedapp.data.common.NetWorkResults
+import com.sandeep.assignment.newsfeedapp.utils.API_ERROR_STR
 import com.sandeep.assignment.newsfeedapp.utils.SUCCESS_MSG
 import javax.inject.Inject
 
@@ -43,7 +44,7 @@ class BBCNewsFeedRepositoryImpl @Inject constructor(private val newsFeedApi: New
             return NetWorkResults.Success(body,SUCCESS_MSG)
         } else {
             var errorMsg : String = if (response.body() == null) {
-                "Error while downloading data, Please check API"
+                API_ERROR_STR
             } else {
                 response.message()
             }

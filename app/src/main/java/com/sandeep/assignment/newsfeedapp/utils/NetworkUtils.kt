@@ -6,6 +6,9 @@ import android.net.NetworkCapabilities
 import android.os.Build
 
 class NetworkUtils {
+    /**
+     * Static method for checking availability of network
+     */
     companion object{
         fun hasInternetConnection(context: Context): Boolean {
             val connectivityManager = context.getSystemService(

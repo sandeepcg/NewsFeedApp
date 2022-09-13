@@ -9,15 +9,6 @@
         android:id="@+id/NewsListFragment"
         android:name="com.sandeep.assignment.newsfeedapp.ui.fragments.NewsListFragment"
         android:label="@string/newsList_fragment">
-        <!--tools:layout="@layout/fragment_main_home">
-
-        <action
-            android:id="@+id/action_home_to_detail"
-            app:destination="@id/HomeDetailFragment" />
-
-        <action
-            android:id="@+id/action_home_to_create"
-            app:destination="@id/HomeCreateFragment" />-->
     </fragment>
 
 </navigation>
